@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PWA</title>
+  <link rel="stylesheet" href="./styles.css">
+
+  <link rel="icon" type="image/png" href="./img/icons/favicon.png">
+
+  <meta name="theme-color" content="#2A3443" />
+  <meta name="description" content="PWA Tutorial Application for a fictional conference.">
+
+  <!-- iOS -->
+  <link rel="apple-touch-icon" href="./img/icons/icon-144x144.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-status-bar-style" content="black" />
+  <meta name="mobile-web-app-title" content="PWA">
+  
+  <link rel="manifest" href="./manifest.json">
+  
+</head>
+
+<body>
+  <header>
+    <h1>um teste ao pwa!</h1>
+  </header>
+
+  <nav>
+    <a href="#">menu 1</a>
+    <a href="#">menu 2</a>
+    <a href="#">menu 3</a>
+  </nav>
+
+  <div class="alert" role="alert" hidden>Your browser does not support ServiceWorker. The app will not be available offline.</div>
+
+  <main>
+    <p>TESTE AO PWA!</p>
+  </main>
+  <footer>
+    <p>FOOTER!!!</p>
+  </footer>
+
+<!-- Service worker registration -->
+<script type="text/javascript">
+  if (navigator.serviceWorker.controller) {
+	console.log('[PWA Builder] active service worker found, no need to register')
+  } else {
+	//Register the ServiceWorker
+	navigator.serviceWorker.register('sw.js', {
+	  scope: './'
+	}).then(function(reg) {
+	  console.log('Service worker has been registered for scope:'+ reg.scope);
+	});
+  }
+</script>  
+  
+  
+</body>
+
+</html>
